@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./config.sh
+. ./config.sh
 
 if [ -d "$LFS/sources" ]; 
 then
