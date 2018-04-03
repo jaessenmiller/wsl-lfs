@@ -71,3 +71,35 @@ Rebooting a WSL 'computer' isn't clear-cut so don't assume things will stay in p
 The Wget list was easy but may have pulled down a lot of code I don't need. *Probably need to make my own clean list at the end of this.*
 
 get-sources.sh works and just used 374 MB of an SSD. *Move LFS to the NAS.*
+
+## 2018-04-03
+
+Time to build the toolchain.
+
+Chapter 4.
+
+Setup the tools folder.
+
+``` shell
+mkdir $LFS/tools
+ln -s $LFS/tools /
+```
+
+Add the LFS user. (Don't build things as root.)
+
+``` shell
+groupadd lfs
+useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+```
+
+Give lfs access to $LFS/sources.
+
+``` shell
+chown lfs $LFS/sources
+```
+
+Logging in as lfs, configure bare environment.
+
+Chapter 5-Constructing a Temporary System
+
+Changing /bin/sh from dash to bash. *Let's see if this hoses the parent.*
